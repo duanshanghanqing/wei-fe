@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>vue</title>
+  </head>
+  <body>
+    <div>
+        <p>hello world</p>
+        <div id="shadow"></div>
+    </div>
+    <script>
+        const shadow = document.getElementById('shadow');
+        
+        // 创建影子，使用dom api 创建
+        const shadowDom = shadow.attachShadow({
+            mode: 'closed', // 外界无法访问 Shadow Dmo
+        });
+
+        // 创建子原始
+        let pElm = document.createElement('p');
+        pElm.innerHTML = 'hello';
+
+        // 创建样式
+        let styleElm = document.createElement('style');
+        styleElm.textContent = `
+            p {
+                color: red;
+            }
+        `;
+        
+        // 插入到影子节点中
+        shadowDom.appendChild(styleElm); // 样式必须在影子标签内
+        shadowDom.appendChild(pElm);
+    </script>
+  </body>
+</html>

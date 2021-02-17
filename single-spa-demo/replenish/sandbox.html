@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>js 沙箱</title>
+  </head>
+  <body>
+    <div>
+    </div>
+    <script>
+        
+        // 快照沙箱
+        class SnapshotSandbox {
+            constructor() {
+                this.proxy = window; // window属性
+                this.modifyPropsMap = {}; // 记录变化的属性
+                this.active(); // 初始化记录快照
+            }
+            
+            // 创建原始快照
+            active() {
+                this.windowSnapshot = {}; // 自拍，存储window对象属性
+                const win = window;
+                for (const key in win) {
+                    if (win.hasOwnProperty(key)) {
+                        this.windowSnapshot[key] = win[key];
+                    }
+                }
+
+                Object.keys(this.modifyPropsMap).forEach((key) => {
+                    win[key] = this.modifyPropsMap[key];// 把上一次修改后的放在window上
+                });
+            }
+            
+            // 比较快照
+            inactive() {
+                const win = window;
+                for (const key in win) {
+                    if (win.hasOwnProperty(key)) {
+                        if (win[key] !== this.windowSnapshot[key]) { // 和原始快照比较
+                            this.modifyPropsMap[key] = win[key];// 保存变化的值
+                            win[key] = this.windowSnapshot[key];// 恢复成原始的
+                        }
+                    }
+                }
+            }
+        }
+        let sandbox = new SnapshotSandbox();
+
+        // 应用的运行，从开始到结束，切换后不会影响全局
+        ((window) => {
+            window.a = 1;
+            window.b = 2;
+            console.log(window.a, window.b); // 1 2
+
+            sandbox.inactive();
+            console.log(window.a, window.b); // undefined undefined
+
+            sandbox.active();
+            console.log(window.a, window.b); // 1 2
+        })(sandbox.proxy);
+
+        // 如果是对歌子应用就不能使用这种方式了，使用 es6的 proxy
+        // 代理沙箱可以实现多应用沙箱隔离，把不同的应用用不同的代理去处理
+    </script>
+  </body>
+</html>
