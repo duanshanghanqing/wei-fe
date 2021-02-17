@@ -25,13 +25,13 @@ const apps = [
         props: {// 传递参数到子应用
             a: 1
         }
+    },
+    {
+        name: 'reactApp', // 应用名称
+        entry: 'http://localhost:9002/', // 默认加载子项目这个html，解析js，动态执行（子应用必须支持跨域）
+        container: '#react', // 挂载节点，容器名称
+        activeRule: '/react' // 激活子应用所匹配的路径，激活条件
     }
-    // {
-    //     name: 'reactApp', // 应用名称
-    //     entry: '//localhost:9002/', // 默认加载子项目这个html，解析js，动态执行（子应用必须支持跨域）
-    //     containner: '#react', // 挂载节点，容器名称
-    //     activeRule: '/react' // 激活子应用所匹配的路径，激活条件
-    // }
 ]
 registerMicroApps(apps, {
     // beforeLoad
