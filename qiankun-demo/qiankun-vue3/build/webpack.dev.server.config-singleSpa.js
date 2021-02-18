@@ -4,14 +4,14 @@ const { name } = require('../package');
 module.exports = merge(webpackdevconfig, {
     output: {
         // 把子应用打包成 umd 库格式
-        // library: `${name}-[name]`,
-        // libraryTarget: 'umd',
-        // jsonpFunction: `webpackJsonp_${name}`,
-
         library: `${name}-[name]`,
-        filename: `${name}-[name].js`,
         libraryTarget: 'umd',
-        globalObject: 'this',
+        jsonpFunction: `webpackJsonp_${name}`,
+
+        // library: `${name}-[name]`,
+        // filename: `${name}-[name].js`,
+        // libraryTarget: 'umd',
+        // globalObject: 'this',
     },
     devServer: {
         headers: {

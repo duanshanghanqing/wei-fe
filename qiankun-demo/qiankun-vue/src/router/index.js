@@ -4,7 +4,7 @@ import Home from '@/views/Home'
 Vue.use(Router)
 
 const router = new Router({
-    base: '/vue',
+    base: '/vue2',
     hashbang: true,
     mode: 'history',
     routes: [

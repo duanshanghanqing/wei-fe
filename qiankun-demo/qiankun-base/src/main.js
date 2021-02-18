@@ -20,8 +20,8 @@ const apps = [
     {
         name: 'vueApp', // 应用名称
         entry: 'http://localhost:9003/', // 默认加载子项目这个html，解析js，动态执行（子应用必须支持跨域）
-        container: '#vue', // 挂载节点，容器名称
-        activeRule: '/vue', // 激活子应用所匹配的路径，激活条件
+        container: '#vue2', // 挂载节点，容器名称
+        activeRule: '/vue2', // 激活子应用所匹配的路径，激活条件
         props: {// 传递参数到子应用
             a: 1
         }
