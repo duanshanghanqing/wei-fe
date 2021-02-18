@@ -6,6 +6,7 @@
       <!-- 引用其他子应用 -->
       <router-link to="/vue">vue应用</router-link>
       <router-link to="/react">react应用</router-link>
+      <router-link to="/vue3">vue3应用</router-link>
     </div>
     <!-- 显示基座自己的路由 -->
     <router-view></router-view>
@@ -13,6 +14,8 @@
     <div id="vue"></div>
     <!-- 显示react应用节点 -->
     <div id="react"></div>
+    <!-- 显示vue3应用节点 -->
+    <div id="vue3"></div>
   </div>
 </template>
 

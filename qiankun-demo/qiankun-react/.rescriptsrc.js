@@ -6,7 +6,7 @@ module.exports = {
     config.output.libraryTarget = 'umd';
     config.output.jsonpFunction = `webpackJsonp_${name}`;
     config.output.globalObject = 'window';
-    config.output.publicPath = 'http://localhost:9002/';
+    config.output.publicPath = 'http://localhost:9006/';
     return config;
   },
 
