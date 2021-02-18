@@ -7,6 +7,7 @@
       <router-link to="/vue2">vue2应用</router-link>
       <router-link to="/react">react应用</router-link>
       <router-link to="/vue3">vue3应用</router-link>
+      <router-link to="/webpack5-vue3">webpack5-vue3应用</router-link>
     </div>
     <!-- 显示基座自己的路由 -->
     <router-view></router-view>
@@ -16,6 +17,8 @@
     <div id="react"></div>
     <!-- 显示vue3应用节点 -->
     <div id="vue3"></div>
+    <!-- 显示webpack5-vue3应用节点 -->
+    <div id="webpack5-vue3"></div>
   </div>
 </template>
 

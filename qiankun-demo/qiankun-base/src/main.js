@@ -37,6 +37,12 @@ const apps = [
         entry: 'http://localhost:9009/', // 默认加载子项目这个html，解析js，动态执行（子应用必须支持跨域）
         container: '#vue3', // 挂载节点，容器名称
         activeRule: '/vue3' // 激活子应用所匹配的路径，激活条件
+    },
+    {
+        name: 'webpack5-vue3', // 应用名称
+        entry: 'http://localhost:9012/', // 默认加载子项目这个html，解析js，动态执行（子应用必须支持跨域）
+        container: '#webpack5-vue3', // 挂载节点，容器名称
+        activeRule: '/webpack5-vue3' // 激活子应用所匹配的路径，激活条件
     }
 ]
 registerMicroApps(apps, {
